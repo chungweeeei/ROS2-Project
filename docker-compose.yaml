@@ -1,0 +1,10 @@
+services:
+  robot:
+    image: robot_image
+    container_name: robot
+    stdin_open: true
+    tty: true
+    volumes:
+      # bind mount
+      - ./robot_ws:/robot_ws
+      
