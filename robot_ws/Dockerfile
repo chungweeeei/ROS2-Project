@@ -6,7 +6,7 @@ RUN apt-get update && apt-get install -y \
     python3-colcon-common-extensions \
     python3-pip \
     byobu \
-    net-tools
+    net-tools 
 
 COPY . /robot_ws/
 

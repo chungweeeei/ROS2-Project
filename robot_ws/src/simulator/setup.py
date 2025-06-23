@@ -1,6 +1,6 @@
 from setuptools import find_packages, setup
 
-package_name = 'system_manager'
+package_name = 'simulator'
 
 setup(
     name=package_name,
@@ -20,7 +20,7 @@ setup(
     tests_require=['pytest'],
     entry_points={
         'console_scripts': [
-            'pub_robot_info = system_manager.system_manager:main',
+            "simulator = simulator.simulator:main",
         ],
     },
 )
