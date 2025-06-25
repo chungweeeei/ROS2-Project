@@ -1,10 +1,48 @@
 services:
-  robot:
-    image: robot_image
-    container_name: robot
+  
+  authenticate-service:
+    container_name: authenticate-service
+    image: chungweeeei/ros2-project-authenticate:dev
     stdin_open: true
     tty: true
+    ports:
+      - "8080:80"
+    environment:
+      - DB_NAME=go_db
+    depends_on:
+      - postgres
+
+  logger-service:
+    container_name: logger-service
+    image: chungweeeei/ros2-project-logger:dev
+    stdin_open: true
+    tty: true
+    ports:
+      - "8081:80"
+    environment:
+      - DB_NAME=go_db
+    depends_on:
+      - postgres
+  
+  postgres:
+    container_name: postgres
+    image: postgres
+    restart: always
+    ports:
+      - "5432:5432"
+    environment:
+      POSTGRES_USER: root
+      POSTGRES_PASSWORD: root
+      POSTGRES_DB: go_db
     volumes:
-      - ./robot_ws:/robot_ws
-    
-      
+      - ./backend/db-data/postgres:/var/lib/postgresql/data/
+  
+  pgadmin:
+    container_name: pgadmin
+    image: elestio/pgadmin
+    restart: always
+    environment:
+      PGADMIN_DEFAULT_EMAIL: admin@admin.com
+      PGADMIN_DEFAULT_PASSWORD: root
+    ports:
+      - "5050:80"
