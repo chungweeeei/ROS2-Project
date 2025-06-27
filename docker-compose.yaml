@@ -23,6 +23,18 @@ services:
       - DB_NAME=go_db
     depends_on:
       - postgres
+
+  mock-robot:
+    container_name: mock-robot
+    image: chungweeeei/ros2-project-mock-robot:dev
+    stdin_open: true
+    tty: true
+    ports:
+      - "8000:8000"
+    depends_on:
+      - postgres
+    volumes:
+      - ./mock-robot:/robot_ws
   
   postgres:
     container_name: postgres
