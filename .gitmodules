@@ -4,3 +4,6 @@
 [submodule "mock-robot"]
 	path = mock-robot
 	url = https://github.com/chungweeeei/ROS2-Project-MockRobot.git
+[submodule "frontend"]
+	path = frontend
+	url = https://github.com/chungweeeei/ROS2-Project-Frontend.git
