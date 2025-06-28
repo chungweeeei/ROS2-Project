@@ -34,7 +34,7 @@ services:
     depends_on:
       - postgres
     volumes:
-      - ./mock-robot:/robot_ws
+      - ./mock-robot/src:/robot_ws/src
   
   postgres:
     container_name: postgres
