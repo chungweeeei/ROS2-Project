@@ -7,6 +7,3 @@
 [submodule "frontend"]
 	path = frontend
 	url = https://github.com/chungweeeei/ROS2-Project-Frontend.git
-[submodule "ROS2-Project-MockArtifact"]
-	path = ROS2-Project-MockArtifact
-	url = https://github.com/chungweeeei/ROS2-Project-MockArtifact.git
